@@ -12,10 +12,19 @@ const checkWinner = (player, computer) => {
   }
 };
 
+const showResult=(result)=>{
+   if(result==="player"){
+    console.log("You win.")
+   }else if(result==="computer"){
+      console.log("You lose!")
+   }else{
+    console.log("It's a tie.")
+   }
+}
 const play=()=>{
 const playerChoice = prompt("choose rock,paper,scissor");
 
-if (choices.indexOf(playerChoice.toLocaleLowerCase()) !== -1) {
+if (choices.indexOf(playerChoice?.toLocaleLowerCase()) !== -1) {
   console.log(`You choose ${playerChoice}`);
 } else {
   console.log("You cheated!");
@@ -26,8 +35,8 @@ const randomNumber = Math.floor(Math.random() * choices.length);
 const computerChoice = choices[randomNumber];
 console.log(`computer chooses ${computerChoice}`);
 
-const result = checkWinner(playerChoice, computerChoice);
-console.log(result);
+const gameResult = checkWinner(playerChoice, computerChoice);
+showResult(gameResult)
 
 }
 
